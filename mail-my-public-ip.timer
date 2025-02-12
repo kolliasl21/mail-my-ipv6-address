@@ -1,0 +1,9 @@
+[Unit]
+Description=Mail my public ipv6 timer
+
+[Timer]
+Unit=mail-my-public-ip.service
+OnCalendar=*-*-* *:0/3:00  # Every 3 minutes
+
+[Install]
+WantedBy=timers.target

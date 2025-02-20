@@ -1,4 +1,4 @@
-# mail-my-ipv6-address
+# Mail my IPv6 address
  
 - Create .timer and .service files in /etc/systemd/user/
 - Reload systemd daemons: $ systemctl --user daemon-reload

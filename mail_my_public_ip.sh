@@ -1,8 +1,10 @@
 #!/bin/bash
 
-file1="/home/user/scripts/my_public_ip.txt"
-file2="/home/user/scripts/mail_my_public_ip.log"
-file3="/home/user/scripts/my_public_ip4.txt"
+mkdir -p $HOME/scripts
+
+file1="$HOME/scripts/my_public_ip.txt"
+file2="$HOME/scripts/mail_my_public_ip.log"
+file3="$HOME/scripts/my_public_ip4.txt"
 
 email_addr="receiving-email-address@gmail.com"
 command_ipv6="[$(ip addr | grep 'scope global dynamic mngtmpaddr noprefixroute' | awk '{print $2}' | cut -d / -f 1 | head -1)]"

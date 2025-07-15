@@ -1,6 +1,7 @@
 # Mail my IPv6 address
  
 - Create .timer and .service files in /etc/systemd/user/
+- Copy .msmtprc to /home/user
 - Reload systemd daemons: $ systemctl --user daemon-reload
 - Enable systemd timer: $ systemctl --user enable mail-my-public-ip.timer --now
 - Create msmtp file in /etc/logrotate.d/

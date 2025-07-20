@@ -19,7 +19,7 @@ format_email() {
         echo "$4" | tee $5
 }
 
-create_file $file1 "::"
+create_file $file1 "[::]"
 create_file $file2 "0.0.0.0"
 
 

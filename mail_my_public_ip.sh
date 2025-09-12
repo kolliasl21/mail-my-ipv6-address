@@ -10,7 +10,7 @@ command_ipv6="[$(ip addr | grep 'scope global dynamic mngtmpaddr noprefixroute' 
 server_name="Name"
 
 create_file() {
-        [ ! -f $1 ] && echo "$2" > $1
+        [[ ! -f $1 ]] && echo "$2" > $1
 }
 
 format_email() {

@@ -6,8 +6,7 @@ file1="$HOME/scripts/my_public_ip.txt"
 file2="$HOME/scripts/my_public_ip4.txt"
 
 email_addr="receiving-email-address@gmail.com"
-command_ipv6="[$(ip addr | grep 'scope global dynamic mngtmpaddr \
-	noprefixroute' | awk '{print $2}' | cut -d/ -f1 | head -1)]"
+command_ipv6="[$(ip addr | grep 'scope global dynamic noprefixroute' | awk '{print $2}' | cut -d/ -f1 | head -1)]"
 server_name="Name"
 
 create_file() {
@@ -20,7 +19,11 @@ format_email() {
 	ping -4 -c 1 ipinfo.io > /dev/null 2>&1 && \
 		echo "$(curl -4 --silent ipinfo.io/ip)" \
 		| tee "$3" || echo "no ipv4 address obtained"
-	echo "$4" | tee "$5"
+	echo "$4"
+}
+
+fatal() {
+	echo "$1" && exit 1
 }
 
 main() {
@@ -36,8 +39,8 @@ main() {
 			"$server_name" \
 			"$file2" \
 			"$command_ipv6" \
-			"$file1" \
-			| /usr/bin/msmtp $email_addr || echo "msmtp error"
+		|| fatal "msmtp error"
+		echo "$command_ipv6" > "$file1" 
 		echo "Finished running at $(date)"
 	else
 		echo "Ping test failed. Internet connection not established" \

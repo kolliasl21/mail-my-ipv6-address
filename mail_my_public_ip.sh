@@ -15,7 +15,7 @@ create_file() {
 
 format_email() {
 	echo "To: $1"
-	echo -e "Subject: ""$2""\n\n"
+	echo -e "Subject: $2\n\n"
 	ping -4 -c 1 ipinfo.io > /dev/null 2>&1 && \
 		echo "$(curl -4 --silent ipinfo.io/ip)" \
 		| tee "$3" || echo "no ipv4 address obtained"

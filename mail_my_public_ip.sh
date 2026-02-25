@@ -43,8 +43,8 @@ main() {
 		echo "$command_ipv6" > "$file1" 
 		echo "Finished running at $(date)"
 	else
-		echo "Ping test failed. Internet connection not established" \
-			&& exit 1
+		echo "Ping test failed. Internet connection not established"
+		exit 1
 	fi
 }
 

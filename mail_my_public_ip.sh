@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir -p "$HOME"/scripts
+mkdir -p "$HOME/scripts"
 
 file1="$HOME/scripts/my_public_ip.txt"
 file2="$HOME/scripts/my_public_ip4.txt"

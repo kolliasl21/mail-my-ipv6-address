@@ -39,7 +39,7 @@ main() {
 			"$server_name" \
 			"$file2" \
 			"$command_ipv6" \
-		|| fatal "msmtp error"
+		| /usr/bin/msmtp || fatal "msmtp error"
 		echo "$command_ipv6" > "$file1" 
 		echo "Finished running at $(date)"
 	else
